@@ -1,0 +1,27 @@
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+  <ul class="pagination-list">
+    <% if @first_page %>
+      <li>
+        <%= link_to @first_page.to_s, url_for(:page => @first_page), class: "pagination-link" %>
+      </li>
+      <% if @previous_page - @first_page > 1 %>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <% end %>
+    <% end %>
+    <% if @previous_page %>
+      <%= link_to @previous_page.to_s, url_for(:page => @previous_page), class: "pagination-link" %>
+    <% end %>
+    <%= link_to @current_page.to_s, url_for(:page => @current_page), class: "pagination-link is-current" %>
+    <% if @next_page %>
+      <%= link_to @next_page.to_s, url_for(:page => @next_page), class: "pagination-link" %>
+    <% end %>
+    <% if @last_page %>
+      <% if @last_page - @next_page > 1 %>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <% end %>
+      <li>
+        <%= link_to @last_page.to_s, url_for(:page => @last_page), class: "pagination-link" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

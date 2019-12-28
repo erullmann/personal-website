@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PersonalWebsite</title>
+    <title>Ernst Rullmann</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <%= render "layouts/favicon" %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body class="has-navbar-fixed-top">
+  <div class="container">
+    <%= render "layouts/navbar" %>
 
-  <body>
-  <%= render "layouts/navbar" %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-  <%= yield %>
+
+    <%= yield %>
+
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      &#9400; <%= Time.now.strftime('%Y') %> Ernst Rullmann
+    </div>
+  </div>
   </body>
 </html>

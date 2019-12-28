@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @articles = Article.published.offset(offset_param).limit(limit_param)
+    @articles = paginate Article.published
   end
 
   def about

@@ -37,10 +37,10 @@ module OffsetConcern
       begin
         params[:offset].to_i
       rescue Exception => e
-        self.class.default_offset_value
+        0
       end
     else
-      self.class.default_offset_value
+      0
     end
   end
 

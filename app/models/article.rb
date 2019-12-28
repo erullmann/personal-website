@@ -1,4 +1,9 @@
 class Article < ApplicationRecord
+  include MarkdownConcern
+  include PaginationConcern
+
+  convert_markdown :body
+
   attr_accessor :skip_date_validation
 
   belongs_to :admin
