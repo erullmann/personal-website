@@ -19,16 +19,19 @@
   <body>
   <div class="columns">
     <div class="column is-half container">
-      <%= render "layouts/navbar" %>
+      <div class="container">
+        <%= render "layouts/navbar" %>
 
-      <% unless notice.blank? %>
-        <p class="notification is-success"><%= notice %></p>
-      <% end %>
-      <% unless alert.blank? %>
-        <p class="notification is-warning"><%= alert %></p>
-      <% end %>
+        <% unless notice.blank? %>
+          <p class="notification is-success"><%= notice %></p>
+        <% end %>
+        <% unless alert.blank? %>
+          <p class="notification is-warning"><%= alert %></p>
+        <% end %>
 
-      <%= yield %>
+        <%= yield %>
+      </div>
+
     </div>
 
 
