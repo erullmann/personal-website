@@ -1,4 +1,4 @@
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top " role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
 
@@ -18,14 +18,13 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <%= link_to "Home", :root, class: 'navbar-item' %>
-        <%= link_to "About", :about, class: 'navbar-item' %>
-        <%= link_to "Resume", :resume, class: 'navbar-item' %>
+        <%= link_to "Résumé", :resume, class: 'navbar-item' %>
       </div>
       <div class="navbar-end">
-        <a href="https://www.linkedin.com/in/ernst-rullmann-84858742/" class="navbar-item">
+        <a href="https://www.linkedin.com/in/ernst-rullmann-84858742/" target="_blank" class="navbar-item">
           <span class="icon"><%= fa_icon "linkedin" %></span>
         </a>
-        <a href="https://github.com/erullmann" class="navbar-item">
+        <a href="https://github.com/erullmann" class="navbar-item" target="_blank">
           <span class="icon"><%= fa_icon "github" %></span>
         </a>
       </div>

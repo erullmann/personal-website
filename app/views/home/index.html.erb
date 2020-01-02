@@ -1,6 +1,15 @@
-<% @articles.each do |article| %>
-  <%= render "articles/article", article: article %>
-<% end %>
-<div class="container">
-  <%= render "layouts/pagination" %>
+<div class="columns">
+  <div class="column">
+    <div class="notification is-info" href="/about">
+      I am a skilled full stack developer with over four years hands-on experience in developing, deploying, maintaining and securing REST API servers,
+      Javascript single-page applications, mobile apps, and CI/CD systems. Check out my <%= link_to 'Résumé', :resume %>!<br/>
+      Or look at the <a href="https://github.com/erullmann/personal-website">source code</a> for this website.
+    </div>
+    <% @articles.each do |article| %>
+      <%= render "articles/article", article: article %>
+    <% end %>
+    <div class="container">
+      <%= render "layouts/pagination" %>
+    </div>
+  </div>
 </div>

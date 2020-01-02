@@ -51,10 +51,10 @@ module PaginationControllerConcern
       begin
         params[:page].to_i
       rescue Exception => e
-        0
+        1
       end
     else
-      0
+      1
     end
   end
 end

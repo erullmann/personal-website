@@ -1,33 +1,35 @@
 <div class="card container article">
   <div class="card-content">
-    <div class="title is-2">
-      <%= article.emoji %> <span class="is-size-3 article-title"><%= article.title %></span>
-    </div>
+    <% if article.title.blank? == false %>
+      <div class="title is-2">
+        <%= article.emoji %> <span class="is-size-3 article-title"><%= article.title %></span>
+      </div>
+    <% end %>
     <div class="content">
-      <%= sanitize article.parsed_body, tags: %w(table thead tbody td th tr p ul ol li h1 h2 h3 h4 h5 h6 h7 code em a) %>
+      <%= sanitize article.parsed_body, tags: Article::ALLOWED_TAGS %>
     </div>
     <div class="article-details has-text-grey">
       <div class="article-detail">
         <span class="icon is-small"><%= fa_icon "clock-o" %></span>
-        <span class="article-detail-label">
+        <span class="article-detail-label" title="<%= article.publish_date %>">
           <%= distance_of_time_in_words_to_now article.publish_date %> ago
         </span>
       </div>
       <% unless article.location.blank? %>
         <div class="article-detail">
           <span class="icon is-small"><%= fa_icon "map-marker" %></span>
-          <span class="article-detail-label">
+          <span class="article-detail-label"  title="<%= article.location %>">
             <%=  article.location %>
           </span>
         </div>
       <% end %>
       <% unless article.source.blank? %>
-        <div class="article-detail">
+        <a class="article-detail" href="<%=  article.source %>" title="<%= article.title %>">
           <span class="icon is-small"><%= fa_icon "link" %></span>
           <span class="article-detail-label">
-            <%=  article.source %>
+            <%=  article.source_name %>
           </span>
-        </div>
+        </a>
       <% end %>
     </div>
   </div>

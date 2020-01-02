@@ -1,2 +1,110 @@
-<h1>Home#resume</h1>
-<p>Find me in app/views/home/resume.html.erb</p>
+<section class="columns">
+  <div class="column">
+    <div class="box">
+      <div class="level">
+        <div class="level-item level-left">
+          <h1 class="title">
+            Ernst Rullmann
+          </h1>
+        </div>
+        <div class="level-item level-right">
+          <%= link_to(asset_path('resume.pdf', skip_pipeline: true), target: :_blank) do %>
+            <span class="icon"><%= fa_icon "file-pdf-o" %></span> PDF
+          <% end %>
+        </div>
+      </div>
+      <p>
+        Skilled full stack developer with over four years hands-on experience in developing, deploying, maintaining and
+        securing REST API servers, Javascript single-page applications, mobile apps, and CI/CD systems.
+      </p>
+      <p>
+        <a href="mailto:e.rullmann@gmail.com" target="_blank">
+          <span class="icon"><%= fa_icon "envelope-o" %></span> Email
+        </a>
+        <a href="https://www.linkedin.com/in/ernst-rullmann-84858742/" target="_blank">
+          <span class="icon"><%= fa_icon "linkedin" %></span> LinkedIn
+        </a>
+        <a href="https://github.com/erullmann" target="_blank">
+          <span class="icon"><%= fa_icon "github" %></span> Github
+        </a>
+      </p>
+    </div>
+    <div class="box">
+      <h2 class="title is-3">
+        Skills
+      </h2>
+      <div>
+        <div class="content">
+          <ul>
+            <li>Highly skilled with Ruby on Rails, Angular (Typescript/Javascript) and SQL (Postgres).</li>
+            <li>Strong working knowledge of modern security, PIHPA and GDPR requirements.</li>
+            <li>Experience with Docker; AWS CodePipeline, EC2 and ECS; C#; HTML/CSS; and Java.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <h2 class="title is-3">
+        Experience
+      </h2>
+      <div>
+        <h3 class="title is-5">
+          Developer, Tuq — Full Time 2017-Present, 3 Coop Terms in 2015-2017
+        </h3>
+        <div class="content">
+          <ul>
+            <li>Creating and maintaining complex and up-to-date REST API servers written using Ruby on Rails, PostgreSQL and Elasticsearch.</li>
+            <li>Building re-usable components to simplify testing and speed up future development.</li>
+            <li>Developing complex mobile (iOS and Android) and single-page (Angular/Typescript) applications that interact with IoT devices.</li>
+            <li>Performing security and code quality assessments on existing code bases and developing short and long-term strategies to mitigate and resolve issues.</li>
+            <li>Developing Docker images and CI/CD solutions to build, test and deploy servers.</li>
+            <li>Working with clients to plan applications, databases and APIs that meet their needs, and regularly meeting with them to provide updates, identify issues and define deliverables.</li>
+            <li>Projects include the Nanoleaf Android app (<%= link_to 'nanoleaf.me', 'https://nanoleaf.me/en/' %>), the Arya EHR web application (<%= link_to 'aryaehr.com', 'https://aryaehr.com' %>), Kyklos Health (<%= link_to 'kykloshealth.com', 'https://www.kykloshealth.com/Account/Login?ReturnUrl=%2F' %>) and Pharmacy 5in5 (<%= link_to 'pharmacy5in5.ca', 'https://pharmacy5in5.ca/app/#/landing/log_in' %>).</li>
+          </ul>
+        </div>
+      </div>
+      <br/>
+      <div>
+        <h3 class="title is-5">
+          Junior Developer, Monolith Interactive — 2 Coop Terms in 2014-2015
+        </h3>
+        <div class="content">
+          <ul>
+            <li>Built and maintained websites and APIs using Ruby on Rails and PostgreSQL.</li>
+            <li>Developed Android mobile apps that interact with REST APIs and play video and audio media.</li>
+          </ul>
+        </div>
+      </div>
+      <br/>
+      <div>
+        <h3 class="title is-5">
+          Junior Developer, Workopolis — Coop May - August 2013
+        </h3>
+        <div class="content">
+          <ul>
+            <li>Constructed and styled HTML website and email templates according to mock-ups.</li>
+            <li>Assessed and restyled automated emails to work correctly with various email clients.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <h2 class="title is-3">
+        Education
+      </h2>
+      <div>
+        <h3 class="title is-5">
+          University of Waterloo — Honours Bachelors of Computer Science, 2017
+        </h3>
+        <div class="content">
+          <ul>
+            <li>Completed Graphics and Real-Time Operating Systems ("Trains") courses.</li>
+            <li>Minor in Combinatorics and Optimization.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br/>
+  </div>
+</section>
+<br/>
