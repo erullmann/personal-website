@@ -31,6 +31,15 @@
           </span>
         </a>
       <% end %>
+      <% if admin_signed_in? %>
+        <%= link_to(edit_article_path(article), class: 'article-detail') do %>
+          <span class="icon is-small"><%= fa_icon "edit" %></span>
+          <span class="article-detail-label">
+            Edit
+          </span>
+        <% end %>
+      <% end %>
     </div>
+
   </div>
 </div>

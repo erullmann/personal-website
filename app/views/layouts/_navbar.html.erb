@@ -1,4 +1,4 @@
-<nav class="navbar is-fixed-top " role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
 
@@ -19,6 +19,10 @@
       <div class="navbar-start">
         <%= link_to "Home", :root, class: 'navbar-item' %>
         <%= link_to "Résumé", :resume, class: 'navbar-item' %>
+
+        <% if admin_signed_in? %>
+          <%= link_to "New Post", new_article_path, class: 'navbar-item' %>
+        <% end %>
       </div>
       <div class="navbar-end">
         <a href="https://www.linkedin.com/in/ernst-rullmann-84858742/" target="_blank" class="navbar-item">

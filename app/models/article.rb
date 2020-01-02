@@ -2,6 +2,8 @@ class Article < ApplicationRecord
   include MarkdownConcern
   include PaginationConcern
 
+  page_size 5
+
   ALLOWED_TAGS = %w(table thead tbody td th tr p ul ol li h1 h2 h3 h4 h5 h6 h7 code em a img)
 
   convert_markdown :body
@@ -11,7 +13,7 @@ class Article < ApplicationRecord
   belongs_to :admin
   belongs_to :feed, optional: true
 
-  scope :published, -> {where('publish_date < ?', Time.now).order(publish_date: :desc)}
+  scope :published, -> {where(removed_at: nil).where('publish_date < ?', Time.now).order(publish_date: :desc)}
 
   validates_presence_of :body, :publish_date
   validate :publish_date_in_future, on: :create, if: -> {!skip_date_validation}
@@ -29,7 +31,7 @@ class Article < ApplicationRecord
 
   def publish_date_in_future
     if self.publish_date && self.publish_date < Time.now
-      self.errors.add(:publish_date, "Must be in future")
+      self.errors.add(:publish_date, "must be in future")
     end
   end
 
@@ -40,7 +42,7 @@ class Article < ApplicationRecord
   end
 
   def detect_emoji
-    if self.emoji.blank?
+    if self.emoji.blank? && body.blank? == false
       emojis = body.scan(Unicode::Emoji::REGEX)
 
       if emojis.length > 0

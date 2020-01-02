@@ -10,21 +10,33 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="has-navbar-fixed-top">
-  <div class="container">
-    <%= render "layouts/navbar" %>
+  <body>
+  <div class="columns">
+    <div class="column is-half container">
+      <%= render "layouts/navbar" %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <% unless notice.blank? %>
+        <p class="notification is-success"><%= notice %></p>
+      <% end %>
+      <% unless alert.blank? %>
+        <p class="notification is-warning"><%= alert %></p>
+      <% end %>
 
+      <%= yield %>
+    </div>
 
-    <%= yield %>
 
   </div>
 
-  <div class="footer">
-    <div class="container">
+  <div class="footer columns">
+    <div class="container column is-half">
       &#9400; <%= Time.now.strftime('%Y') %> Ernst Rullmann
+      <br/>
+      <% if admin_signed_in? %>
+        <%= link_to('Logout', destroy_admin_session_path, method: :delete, class: "login-link") %>
+      <% else %>
+        <%= link_to 'Login', new_admin_session_path, class: "login-link" %>
+      <% end %>
     </div>
   </div>
   </body>

@@ -19,3 +19,11 @@
 @import "bulma";
 @import "article";
 @import "pagination";
+
+.login-link {
+  color: #fafafa;
+
+  &:hover {
+    colour: #3273dc;
+  }
+}

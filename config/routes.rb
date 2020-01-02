@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'about' => 'home#about'
   get 'resume' => 'home#resume'
+  resources 'articles'
 
   root to: "home#index"
 end
