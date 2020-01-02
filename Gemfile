@@ -65,3 +65,7 @@ gem "font-awesome-rails"
 gem "bulma-rails"
 
 gem "redcarpet"
+
+gem 'feedjira'
+
+gem "unicode-emoji"

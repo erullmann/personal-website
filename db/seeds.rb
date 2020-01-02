@@ -1,4 +1,4 @@
-admin = Admin.create(email: 'testadmin@rullmann.ca', password: 'Testing123', password_confirmation: 'Testing123')
+admin = Admin.create!(email: 'testadmin@rullmann.ca', password: 'Testing123', password_confirmation: 'Testing123', name: "Test Admin")
 
 emoji = %w[🤠 😁 👨‍💻 🖖 👋 🧵 👑 🙏]
 
@@ -19,3 +19,6 @@ end
 (1..5).each do |index|
   Article.create(admin: admin, title: Faker::Lorem.sentence, body: makdown_sandwich(sentences: (5 * rand + 1).to_i, repeat: (3 * rand + 1).to_i), emoji: emoji.sample, location: Faker::Nation.capital_city, publish_date: (index.days.from_now))
 end
+
+Feed.create!(url: "https://erullmann.micro.blog/feed.xml", name: "Ernst's Micro Blog", minutes_between_fetches: 10, admin: admin)
+FeedJob.perform_now
