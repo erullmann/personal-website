@@ -74,3 +74,9 @@ yarn-debug.log*
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+database.env
+personal-website/tmp
+.DS_Store
+*.env
+*.log
