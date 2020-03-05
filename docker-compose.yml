@@ -1,0 +1,29 @@
+version: '3'
+services:
+  nginx-proxy:
+    build: nginx-proxy
+    depends_on:
+    - "application"
+    ports:
+    - 3000:80
+    - 3001:443
+    volumes:
+    - ./tmp/nginx:/storage
+    - ./tmp/nginx-logs:/var/log/nginx
+    - ./tmp/letsencrypt:/etc/letsencrypt
+
+  application:
+    build: personal-website
+    depends_on:
+    - "database"
+    env_file:
+    - development.env
+    volumes:
+    - ./personal-website:/website
+
+  database:
+    image: "postgres:11"
+    env_file:
+    - development.env
+    volumes:
+    - ./tmp/db:/var/lib/postgresql/data/

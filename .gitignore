@@ -80,3 +80,4 @@ personal-website/tmp
 .DS_Store
 *.env
 *.log
+personal-website/public/assets
