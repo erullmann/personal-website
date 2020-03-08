@@ -1,0 +1,31 @@
+version: '3'
+services:
+  nginx-proxy:
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+    - nginx-storage:/storage
+    - nginx-logs:/var/log/nginx
+    - nginx-letsencrypt:/etc/letsencrypt
+
+  application:
+    env_file:
+    - production.env
+    volumes:
+    - application-storage:/website/storage
+    - application-logs:/website/log
+
+  database:
+    env_file:
+    - production.env
+    volumes:
+    - database-storage:/var/lib/postgresql/data/
+
+volumes:
+  application-storage:
+  application-logs:
+  database-storage:
+  nginx-storage:
+  nginx-logs:
+  nginx-letsencrypt:
