@@ -8,6 +8,7 @@ services:
     - 3000:80
     - 3001:443
     volumes:
+    - "website-assets:/website/public"
     - ./tmp/nginx:/storage
     - ./tmp/nginx-logs:/var/log/nginx
     - ./tmp/letsencrypt:/etc/letsencrypt
@@ -19,7 +20,7 @@ services:
     env_file:
     - development.env
     volumes:
-    - ./personal-website:/website
+    - website-assets:/assets
 
   database:
     image: "postgres:11"
@@ -27,3 +28,6 @@ services:
     - development.env
     volumes:
     - ./tmp/db:/var/lib/postgresql/data/
+
+volumes:
+  website-assets:

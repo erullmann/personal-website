@@ -3,7 +3,7 @@ LABEL ca.rullmann.author="Ernst Rullmann" \
       ca.rullmann.email="e.rullmann@gmail.com" \
       ca.rullmann.version="1.0"
 
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client rsync
 
 RUN bundle config --global frozen 1
 RUN gem install bundler
